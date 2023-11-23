@@ -7,11 +7,12 @@ body {
 }
 
 .content {
+    flex: 1;
     margin: 50px auto;
-    max-width: 600px; /* Set the maximum width of the page */
+    max-width: 600px; /* Sets the maximum width of the page */
     padding: 80px;
     box-shadow: 0 0 10px rgba(37, 37, 37, 0.3);
-    border: 0.5px solid #636161; /* Set the border style, width, and color */
+    border: 0.5px solid #636161; /* Sets the border style, width, and color */
 }
 
 h1 {
@@ -26,9 +27,9 @@ h1 {
 h1::after {
     content: "";
     display: block;
-    width: 100%; /* Adjust the width of the line as needed */
-    height: 1px; /* Adjust the thickness of the line as needed */
-    background-color: #000000; /* Adjust the color of the line as needed */
+    width: 100%; /* Adjusts the width of the line as needed */
+    height: 1px; /* Adjusts the thickness of the line as needed */
+    background-color: #000000; /* Adjusts the color of the line as needed */
     position: absolute;
     bottom: 0;
     top: 110%;
@@ -57,8 +58,8 @@ h4 {
     color: #000000;
     position: relative;
     font-size: 20px;
-    margin-top: 80px;
-    margin-bottom: 5px;
+    margin-top: 30px;
+    margin-bottom: -10px;
 }
 
 h5 {
@@ -74,13 +75,89 @@ h5 {
 h5::before {
     content: "";
     display: block;
-    width: 100%; /* Adjust the width of the line as needed */
-    height: 1px; /* Adjust the thickness of the line as needed */
-    background-color: #000000; /* Adjust the color of the line as needed */
+    width: 100%; /* Adjusts the width of the line as needed */
+    height: 1px; /* Adjusts the thickness of the line as needed */
+    background-color: #000000; /* Adjusts the color of the line as needed */
     position: absolute;
     bottom: 0;
     top: -50%;
 }
+
+h6 {
+    color: #000000;
+    position: relative;
+    margin-top: 80px;
+    margin-bottom: 80px;
+}
+
+input:focus {
+    outline: none;
+}
+
+input::placeholder {
+    text-align: center;
+    font-weight: bold;
+    font-size: 13px;
+    color: #000000;
+}
+
+#clientNameContainer {
+    text-align: center; /* Centers the text horizontally */
+    align-items: center; /* Centers the child elements vertically */
+    margin-bottom: 160px;
+}
+
+#clientName{
+    padding: 5px;
+    margin-top: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: rgb(255, 255, 51);
+}
+
+#serviceCost{
+    text-size-adjust: 16px;
+    text-align: center;
+    border: none;
+    font-weight: bold;
+    box-shadow: none;
+    align-items: center;
+    background-color: rgb(255, 255, 51);
+}
+
+#serviceDescription{
+    text-size-adjust: 17px;
+    text-align: center;
+    border: none;
+    font-weight: bold;
+    box-shadow: none;
+    align-items: center;
+    background-color: rgb(255, 255, 51);
+    margin-bottom: 20px;
+}
+
+#startDate{
+    text-size-adjust: 17px;
+    text-align: center;
+    border: none;
+    font-weight: bold;
+    box-shadow: none;
+    align-items: center;
+    background-color: rgb(255, 255, 51);
+    margin-bottom: 20px;
+}
+
+#endDate{
+    text-size-adjust: 17px;
+    text-align: center;
+    border: none;
+    font-weight: bold;
+    box-shadow: none;
+    align-items: center;
+    background-color: rgb(255, 255, 51);
+    margin-bottom: 20px;
+}
+
+
 
 /* Styles my list items to resemble */
 ol ol{
@@ -103,7 +180,7 @@ ol ol{
     list-style-type: none; /* Uses uppercase dots */
 }
 
-/* Style the number part (assuming it's the first child of the li) */
+/* Styles the number part (assuming it's the first child of the li) */
 li > span.number {
     font-weight: bold;
 }
@@ -111,6 +188,31 @@ li > span.number {
 .tabbed-text {
     text-indent: 30px; /* Adjusts the indentation as needed */
 }
+
+.button-container1 {
+    margin-bottom: 60px;
+    text-align: center;
+}
+
+.button-container2 {
+    text-align: center;
+}
+
+.button {
+    padding: 10px;
+    display: block;
+    display: inline-block;
+    color: white;
+    background-color: #232523;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
 
 /* Styles my page to display the page number */
 .page-number {
