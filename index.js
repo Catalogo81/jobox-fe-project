@@ -46,8 +46,7 @@ const Contracts = mongoose.model("Contracts", contractsSchema);
 //sends the index.html file to our browers
 app.get("/", function(req, res){
     res.sendFile(__dirname + "/index.html");
-})
-
+});
 
 //send input from user to our mongoDB
 app.post("/", function(req, res){
@@ -63,6 +62,7 @@ app.post("/", function(req, res){
 
     //save the file
     newContracts.save();
+
     res.redirect('/');
 })
 

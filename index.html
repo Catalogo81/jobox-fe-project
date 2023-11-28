@@ -7,9 +7,15 @@
     <link rel="stylesheet" href="styles.css">
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
     <!-- <script src="https://rawgit.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script> -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </head>
 <body>
+    <div class="button-container1">
+        <button class="btn btn-primary" onclick="downloadDoc()" id="download" >Download PDF</button>
+    </div>
+
     <form id="contractForm" method="post" action="/">
         <div class="content">
             <h1>RECRUITMENT RATES AND TERMS AGREEMENT</h1>
@@ -74,29 +80,77 @@
                 <h2>4.</h2>
     
                 <p></p>
-                <p>Signed at ______________________ on ______________________</p>
+                <p>Signed at <input type="text" style="border: none;" name="signedAt" placeholder="______________________" required></input> on <input type="date" name="signedOn" placeholder="______________________" required></input></p>
             
                 <h2></h2>
-                <p>______________________</p>
+                <p><input type="text" style="border: none;" name="signedByWho" placeholder="______________________" required></input></p>
                 <p>Who warrants authority on behalf of Jobox</p>
                 <h2></h2>
-                <p>Signed at ______________________ on ______________________</p>
+                <p>Signed at <input type="text" style="border: none;" name="signedAt" placeholder="______________________" required></input> on <input type="date" name="signedOn" placeholder="______________________" required></input></p>
             
                 <h2></h2>
-                <p>______________________</p>
+                <p><input type="text" style="border: none;" name="authorizedByWho" placeholder="______________________" required></input></p>
                 <p>Who warrants authority on behalf of </p>
             </div>
     
             <div><h5>PAGE 3 OF 3</h5></div>
             <div>
                 <div class="button-container1">
-                    <button class="button">Submit Document</button>
-                    <button class="button" onclick="downloadDoc()">Download as PDF</button>
+                    <button class="button" id="submit">Submit Document</button>
+                    <!-- <button class="button" onclick="downloadDoc()">Download as PDF</button> -->
                 </div>
             </div>
         </div>
     </form>
+    <!-- <button class="button" onclick="downloadDoc()">Download as PDF</button> -->
 
-    <script src="index.js"></script>
+    <!-- <script src="html2pdf.js"></script>
+    <script src="index.js"></script> -->
+
+    <script>
+
+        // Gets the button element by its ID
+        var myButton = document.getElementById('submit');
+
+        // Adds a click event listener to the button
+        myButton.addEventListener('click', function() {
+            // executes when the submit button is clicked
+            alert('Contract Form Successfully Sent');
+        });
+            function generatePDF() {
+                return new Promise((resolve, reject) => {
+                    html2pdf(document.body, {
+                        margin: 0.5,
+                        filename: 'termsOfAgreement.pdf',
+                        image: { type: 'jpeg', quality: 1 },
+                        html2canvas: { scale: 2, logging: true, letterRendering: true },
+                        jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' },
+                        jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait', putOnlyUsedFonts: true },
+                        html2canvas: {
+                            scale: 3, // Increases the scale if the content appears small in the PDF
+                            useCORS: true, // Enables CORS for cross-origin images
+                            scrollY: -window.scrollY, // Fixes for the issue with rendering content above the visible area
+                            logging: true, // Enables logging to the console for debugging
+                        },
+                    }).then(() => {
+                        resolve();
+                    }).catch((error) => {
+                        reject(error);
+                    });
+                });
+
+            }
+
+                async function downloadDoc() {
+                    try {
+                        await generatePDF();
+                        alert('Downloading Document');
+                    } catch (error) {
+                        console.error('Error generating PDF:', error);
+                        alert('An error occurred during PDF generation.');
+                    }
+                }
+    </script>
+
 </body>
 </html>
