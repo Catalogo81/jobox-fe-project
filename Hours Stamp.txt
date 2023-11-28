@@ -1,0 +1,7 @@
+Time (Duration) 	Date		Task
+14:00 - 14:45 		2023/11/20 	Started Project Blueprint - Creating empty index, css and javascript files and pushing to the repository.
+15:00 - 18:42		2023/11/20	Added html and css content to the poject
+13:00 - 13:20		2023/11/21	Added code to the jc script for page changing
+13:30 - 13:34		2023/11/21	Added code to the js script for downloadinng the contract as pdf
+15:20 - 22:30		2023/11/23	Added code to the server and index js scripts for sending the data to mongoDB and retriving it on a html table
+20:00 - 22:48		2023/11/28	Added some bug fixes on the download button. Still needs some fixing though, but functionality works.
